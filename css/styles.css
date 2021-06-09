@@ -276,6 +276,34 @@ body {
   margin-right: 30px;
 }
 
+.speciality-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.speciality .thumb {
+  position: relative;
+}
+
+.label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 27px;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.143;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--white-color);
+  background-color: rgba(47, 48, 58, 0.8);
+  border: none;
+}
+
 /* team */
 
 .team {
@@ -306,6 +334,12 @@ body {
 .member-info {
   padding-top: 30px;
   margin-bottom: 16px;
+}
+
+.member-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 .team-member {
@@ -575,7 +609,9 @@ body {
 
 .example {
   padding: 20px 24px;
-  border: 1px solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
+  border-left: 1px solid #eeeeee;
+  border-right: 1px solid #eeeeee;
 }
 
 .example-name {
