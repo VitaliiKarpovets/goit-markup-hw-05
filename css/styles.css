@@ -58,7 +58,7 @@ body {
   margin-right: 50px;
 }
 
-.site-nav .item,
+.site-nav .link,
 .site-media .item {
   padding-top: 32px;
   padding-bottom: 32px;
@@ -78,6 +78,7 @@ body {
   text-decoration: none;
   padding-bottom: 25px;
   padding-top: 24px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .logo-primary {
@@ -96,6 +97,26 @@ body {
   line-height: 1.143;
   letter-spacing: 0.02em;
   text-decoration: none;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.site-nav .item {
+  position: relative;
+}
+
+.site-nav .item::after {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  content: "";
+  outline: 1px solid var(--accent-color);
+  opacity: 0;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.site-nav .item:hover::after {
+  opacity: 1;
 }
 
 .site-nav .link:hover,
@@ -115,7 +136,7 @@ body {
   position: absolute;
   width: 100%;
   height: 4px;
-  top: 45px;
+  bottom: 1px;
   left: 0;
   background: #2196f3;
   border-radius: 2px;
@@ -381,6 +402,8 @@ body {
   border-radius: 50%;
   cursor: pointer;
   color: var(--socials-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button-socials {
@@ -411,6 +434,8 @@ body {
   border-radius: 4px;
   cursor: pointer;
   color: var(--socials-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button-clients {
@@ -496,6 +521,7 @@ body {
   border-radius: 50%;
   cursor: pointer;
   color: var(--white-color);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .address-info {
@@ -526,7 +552,13 @@ body {
   background-color: var(--backdrop-color);
 }
 
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
 .modal {
+  position: relative;
   width: 528px;
   height: 581px;
   background-color: var(--primary-bg-color);
@@ -534,6 +566,26 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.modal .button {
+  position: absolute;
+  padding: 0;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  border: 0px;
+  background-color: var(--primary-bg-color);
+  cursor: pointer;
+}
+
+.button-close {
+  margin: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: var(--primary-bg-color);
+  padding: 5px;
 }
 
 /* portfolio */
@@ -587,6 +639,9 @@ body {
   padding: 6px 22px;
   border: 0px;
   margin: auto;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .filter .button:hover,
@@ -601,7 +656,6 @@ body {
 .example-list:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
-  cursor: pointer;
 }
 .examples {
   display: flex;
@@ -619,6 +673,38 @@ body {
   flex-basis: calc(100% / 3 - var(--card-set-gap));
   margin-left: var(--card-set-gap);
   margin-top: var(--card-set-gap);
+  cursor: pointer;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.example-thumb {
+  position: relative;
+}
+
+.example-thumb::before {
+  display: inline-block;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(33, 150, 243, 0.9);
+}
+
+.description {
+  position: absolute;
+  width: 322px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.description-text {
+  font-size: 18px;
+  line-height: 1.555;
+  letter-spacing: 0.03em;
+  color: var(--white-color);
 }
 
 .example-image {
